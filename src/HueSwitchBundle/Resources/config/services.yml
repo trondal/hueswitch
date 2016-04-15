@@ -1,0 +1,4 @@
+services:
+#    hue_switch.example:
+#        class: HueSwitchBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

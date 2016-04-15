@@ -1,0 +1,9 @@
+hue_switch_homepage:
+    path:     /
+    defaults: { _controller: HueSwitchBundle:Default:index }
+hue_switch_off:
+    path:     /off
+    defaults: { _controller: HueSwitchBundle:Default:off }
+hue_switch_on:
+    path:     /on
+    defaults: { _controller: HueSwitchBundle:Default:on }

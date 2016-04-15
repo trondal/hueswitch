@@ -1,0 +1,37 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HueSwitch</title>
+        {% block stylesheets %}
+            {% stylesheets 'bundles/hueswitch/css/*' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+            {% for key,scene in scenes %}
+                
+                <form action="/onscene" method="post">
+                     <input type="submit" name="on" value="{{ scene.name|replace({' on 0': ''}) }} ON">
+                     <input type="hidden" value="{{key}}" name="sceneId"/>
+                </form>
+                <form action="/offscene" method="post">
+                     <input type="submit" name="off" value="{{ scene.name|replace({' on 0': ''}) }} OFF">
+                     <input type="hidden" value="{{key}}" name="sceneId"/>
+                </form>
+            {% endfor %}
+
+            {% block javascripts %}
+            {% javascripts '@HueSwitchBundle/Resources/public/js/script.js' %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+        <script>
+            $(document).foundation();
+        </script>
+
+    </body>
+</html>
